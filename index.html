@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bisction Method</title>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  <script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.2.3/jspdf.plugin.autotable.min.js"></script>
+
+  <link rel="stylesheet" href="bisection.css" />
+  <!-- <script scr="bisection.js"></script> -->
+</head>
+
+<body>
+  <div class="bar">
+
+    <nav class="nav">
+      <ul class="ul">
+        <li class="home">Bisection Method</li>
+      
+      </ul>
+    </nav>
+
+  </div>
+ 
+  <h1 id="head"> <b id="jadu">Bisection Method</b></h1>
+
+  <form id="formBhaiya" class="container">
+    <!-- <label for="cars">Choose a car:</label> -->
+    <br>
+    <select name="type" id="equation">
+      <option value="select" class="munnu">select</option>
+      <option value="Algebric" id="chunu1">Algebric equation</option>
+      <option value="Transcendental" class="chunu2">Transcendental equation</option>
+
+
+    </select>
+    <br>
+
+  </form>
+  <br>
+  <br>
+  <hr id="hr">
+  <div id="algebra">
+    <h2>For finding the roots of linear, quadratic and third degree polynomial.</h2>
+    <div class="algebra1">
+      <sub class="sub">
+        <p>Input for the method is a continuous function f, an interval [a, b], and the function values f(a) and
+          f(b). The function values are of opposite sign (there is at least one zero crossing within the interval).
+          Each iteration performs these steps:</p>
+
+        <p>1.Calculate c, the midpoint of the interval,<span>c=(a+b)/2</span></p>
+        <p>2.Calculate the function value at the midpoint, f(c).</p>
+        <p>3.If convergence is satisfactory (that is, c - a is sufficiently small, or |f(c)| is sufficiently small),
+          return c and stop iterating.</p>
+        <p>4.Examine the sign of f(c) and replace either (a, f(a)) or (b, f(b)) with (c, f(c)) so that there is a zero
+          crossing within the new interval.</p>
+        </sup>
+
+    </div>
+    <div class="simulator">
+
+      <label>\(ax^3 + bx^2 + cx+d = 0\)</label>
+      <div class="inputTag">
+        <label for="a">a =</label>
+        <input name="a" id="a" value="a" class="nmbr_real real" type="number" title="real number"
+          placeholder="coefficient a" required="" autofocus="" size="8" maxlength="4">
+
+      </div>
+      <div class="inputTag">
+
+        <label for="b">b =</label>
+        <input name="b" id="b" value="b" class="nmbr_real real" type="number" title="real number"
+          placeholder="coefficient b" required="" autofocus="" size="8" maxlength="4">
+
+      </div>
+      <div class="inputTag">
+
+        <label for="c">c =</label>
+        <input name="c" id="c" value="c" class="nmbr_real real" type="number" title="real number"
+          placeholder="coefficient c" required="" autofocus="" size="8" maxlength="4">
+
+      </div>
+      <div class="inputTag">
+
+        <label for="d">d =</label>
+        <input name="d" id="d" value="d" class="nmbr_real real" type="number" title="real number"
+          placeholder="coefficient d" required="" autofocus="" size="8" maxlength="4">
+
+      </div>
+      <div class="iterations">
+        <label>Enter The Number of Iteration :</label>
+        <input name="iterations" value="iterations" id="iterations" type="number" title="natural number"
+          placeholder="iterations" size="8" maxlength="4">
+
+      </div>
+      <div class="intervals">
+
+        &nbsp;&nbsp;&nbsp;<label>Enter The intervals [<var>a<sub>n</sub>,b<sub>n</sub></var>] :</label>
+
+        <var>a<sub>n</sub>=<input name="intervalA" id="intervalA" value="intervalA" type="number" title="real number"
+            placeholder="interval" size="8" maxlength="4">
+          <var>b<sub>n</sub>=<input name="intervalB" id="intervalB" value="intervalB" type="number" title="real number"
+              placeholder="interval" size="8" maxlength="4">
+
+      </div>
+      <div class="result">
+        <label>For gerenating the root of polynomial:</label>
+        <button name="button" id="result" value="" type="button">Click Here</button>
+
+      </div>
+      <div class="roots">
+
+        <p id="root" style="margin: 0; display: inline;">The Root of Polynomial(Result):</p>
+        <p id="root1" style="margin: 0; display:inline;" align="right"> </p>
+      </div>
+      <div class="download">
+        <label>click here to Generate PDF : </label>
+        <button name='download button' id="download" type="button">Generate PDF</button>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="trans">
+    <h2>For finding the roots of transcendental equation</h2>
+
+  </div>
+
+  <!-- <div id="graph"></div> -->
+  <div id="graph"
+   style="width:100%;max-width:900px; height: 100%; max-height: 500px;  margin-left: 200px; display: none;">
+  </div>
+  
+   <div class="container">
+
+    <div id="footer">
+      <p>&copy; 2022 Something. All rights reserve
+         This website is created and maintended by <b> Hemant Singh</b> 
+    </p>
+    
+     </div>
+    </div>
+  <script src="bisection.js"></script>
+</body>
+
+</html>
